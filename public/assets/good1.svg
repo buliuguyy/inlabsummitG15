@@ -1,0 +1,6 @@
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" fill="#4ecdc4" rx="10"/>
+  <text x="50" y="40" font-family="Arial" font-size="12" fill="white" text-anchor="middle">论文</text>
+  <text x="50" y="55" font-family="Arial" font-size="12" fill="white" text-anchor="middle">ACCEPT</text>
+  <text x="50" y="75" font-family="Arial" font-size="20" text-anchor="middle">🎉</text>
+</svg>

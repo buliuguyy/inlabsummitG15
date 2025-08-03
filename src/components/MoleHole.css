@@ -1,0 +1,157 @@
+.mole-hole {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #8b4513, #654321);
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mole-hole:hover {
+  transform: scale(1.05);
+}
+
+.hole-background {
+  font-size: 2rem;
+  opacity: 0.8;
+}
+
+.mole-container {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: molePopUp 0.3s ease-out;
+  min-width: 140px;
+  z-index: 10;
+}
+
+@keyframes molePopUp {
+  0% {
+    transform: translateX(-50%) translateY(20px) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.mole-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  border: 2px solid #ddd;
+}
+
+.status-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mole-container.bad {
+  border: 2px solid #ff6b6b;
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+.mole-container.good {
+  border: 2px solid #4ecdc4;
+  box-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+  animation: goodTransition 0.5s ease-out;
+}
+
+@keyframes goodTransition {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    border-color: #ff6b6b;
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px) scale(1.1);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    border-color: #4ecdc4;
+  }
+}
+
+.good-state {
+  color: #4ecdc4;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.mole-status {
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 5px;
+  max-width: 120px;
+  word-wrap: break-word;
+}
+
+.action-hints {
+  display: flex;
+  gap: 10px;
+  font-size: 10px;
+  color: #666;
+}
+
+.left-click,
+.right-click {
+  padding: 2px 6px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.has-mole .hole-background {
+  opacity: 0.3;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .mole-hole {
+    width: 80px;
+    height: 80px;
+  }
+
+  .mole-container {
+    min-width: 100px;
+    padding: 6px;
+  }
+
+  .mole-image {
+    width: 45px;
+    height: 45px;
+  }
+
+  .mole-status {
+    font-size: 10px;
+    max-width: 90px;
+  }
+
+  .action-hints {
+    font-size: 8px;
+    gap: 5px;
+  }
+}
