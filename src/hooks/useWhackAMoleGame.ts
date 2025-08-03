@@ -19,18 +19,17 @@ export const useWhackAMoleGame = () => {
     isGameOver: false,
   });
 
-  const [userStatuses, setUserStatuses] =
-    useState<GameStatus[]>(defaultStatuses);
+  const [gameStatuses] = useState<GameStatus[]>(defaultStatuses);
 
   // 添加当前状态索引，用于按顺序显示图片
   const [currentStatusIndex, setCurrentStatusIndex] = useState(0);
 
   // 按顺序选择下一个状态
   const getNextStatus = useCallback(() => {
-    const status = userStatuses[currentStatusIndex % userStatuses.length];
+    const status = gameStatuses[currentStatusIndex % gameStatuses.length];
     setCurrentStatusIndex((prev) => prev + 1);
     return status;
-  }, [currentStatusIndex, userStatuses]);
+  }, [currentStatusIndex, gameStatuses]);
 
   // 随机选择一个位置生成地鼠
   const spawnMole = useCallback(() => {
@@ -183,11 +182,6 @@ export const useWhackAMoleGame = () => {
     }));
   }, [gameState.activeMoles]);
 
-  // 上传自定义状态
-  const uploadCustomStatuses = useCallback((statuses: GameStatus[]) => {
-    setUserStatuses(statuses);
-  }, []);
-
   // 游戏计时器
   useEffect(() => {
     let timer: number;
@@ -245,10 +239,8 @@ export const useWhackAMoleGame = () => {
 
   return {
     gameState,
-    userStatuses,
     startGame,
     endGame,
     handleMoleClick,
-    uploadCustomStatuses,
   };
 };

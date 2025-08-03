@@ -8,14 +8,19 @@ function App() {
 
   return (
     <div className="App">
-      <div className="game-container">
-        <GamePanel gameState={gameState} onStartGame={startGame} />
-        <GameBoard
-          activeMoles={gameState.activeMoles}
-          onMoleClick={handleMoleClick}
-          gameStarted={gameState.gameStarted}
-        />
-      </div>
+      <header className="App-header">
+        <h1>打地鼠</h1>
+      </header>
+      <main>
+        <div className="game-container">
+          <GamePanel gameState={gameState} onStartGame={startGame} />
+          <GameBoard
+            activeMoles={gameState.activeMoles}
+            onMoleClick={handleMoleClick}
+            gameStarted={gameState.gameStarted}
+          />
+        </div>
+      </main>
     </div>
   );
 }

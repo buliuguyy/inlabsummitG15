@@ -4,14 +4,14 @@ import type { GameStatus } from "../types/game";
 export const generateStatusesFromAssets = (): GameStatus[] => {
   const statuses: GameStatus[] = [];
 
-  // 只使用bad1-bad4和good1-good4的图片
-  for (let i = 1; i <= 4; i++) {
+  // 使用bad0-bad4和good0-good4的PNG图片
+  for (let i = 0; i <= 4; i++) {
     statuses.push({
       id: i.toString(),
       badText: `状态${i} - 坏`,
       goodText: `状态${i} - 好`,
-      badImage: `/assets/bad${i}.svg`,
-      goodImage: `/assets/good${i}.svg`,
+      badImage: `/assets/bad${i}.png`,
+      goodImage: `/assets/good${i}.png`,
     });
   }
 
